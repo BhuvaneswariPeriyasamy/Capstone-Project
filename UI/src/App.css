@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Make the App component take full height */
+  .App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Main content should take the remaining space */
+  main {
+    flex: 1;
+  }
+  
+  /* Header styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #DEB887;
+    /* color: black !important; */
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links a {
+    color: #333;
+    text-decoration: none;
+    
+  }
+
+  .nav-links a:hover{
+    color: #CD5C5C;
+  }
+
+  .navigation{
+
+    font-weight: bold;
+
+  }
+  .navigation:hover{
+    color: #E9967A;
+  }
+  .logo{
+
+    color: #333;
+    display:flex;
+    align-items: center; 
+
+    font-weight: bold !important;
+  }
+  .logo img {
+    width: 70px;
+    color:#333;
+    margin-right: 10px;
+  }
+
+  .logo name{
+    font-size: 24px;
+   
+
+  }
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #DEB887;
+    color: white;
+    width: 100%;
+  }
+  
+
+
+  /* Footer.css */
+.footer {
+    background-color: #333; /* Footer background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding around the footer */
+    display: flex;
+    flex-direction: column; /* Ensures footer-container and copyright are stacked */
+    justify-content: space-between;
+    background-color: #DEB887;
+    color:#333;
+    font-weight: bold !important;
+    
+}
+
+.footer-container {
+    display: flex; /* Flexbox to create columns */
+    justify-content: space-between; /* Space between columns */
+    padding-bottom: 20px; /* Space between columns and copyright */
+}
+
+.footer-section {
+    flex: 1; /* Each section takes equal space */
+    margin: 0 10px; /* Adds some space between the sections */
+    color:#333;
+
+}
+.footer-section nav ul {
+    list-style-type: none;
+    color:#333;
+   
+}
+
+
+li a {
+    text-decoration: none;
+    color:#333 !important; /* Removes underline on links */
+  }
+
+.footer-nav,
+.footer-links,
+.social-icons {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.footer-nav li,
+.footer-links li,
+.social-icons li {
+    margin: 5px 0; /* Space between list items */
+}
+
+.footer a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+
+
+
+
+.social-icons {
+    display: flex; /* Align social icons in a row */
+    gap: 10px;
+    align-items: center;
+    margin-left: 25%; /* Space between social icons */
+}
+span{
+
+    margin-right: 20%;
+}
+
+.social-icons li {
+    list-style: none; /* Remove bullet points from list */
+}
+
+.social-icons a {
+    display: inline-block; /* Makes the icon clickable */
+    animation: moveUpDown 2s ease-in-out infinite; /* Add animation */
+}
+
+.social-icons a img {
+    margin-top: 20px;
+    width: 30px; /* Set size for icons */
+    height: 30px;
+}
+/* Keyframes for the up-and-down animation */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0); /* Original position */
+    }
+    50% {
+        transform: translateY(-10px); /* Move up by 10px */
+    }
+    100% {
+        transform: translateY(0); /* Back to original position */
+    }
+}
+
+
+.copywrightContainer {
+    text-align: center; /* Center align the copyright text */
+    margin-top: 20px; /* Space above the copyright */
+    border-top: 1px solid #444; /* Add a top border to separate copyright */
+    padding-top: 10px; /* Space inside copyright container */
+}
