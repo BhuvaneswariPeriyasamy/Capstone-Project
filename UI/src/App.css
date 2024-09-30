@@ -118,6 +118,7 @@
     flex: 1; /* Each section takes equal space */
     margin: 0 10px; /* Adds some space between the sections */
     color:#333;
+  
 
 }
 .footer-section nav ul {
@@ -130,6 +131,7 @@
 li a {
     text-decoration: none;
     color:#333 !important; /* Removes underline on links */
+    text-align: center;
   }
 
 .footer-nav,
@@ -259,4 +261,211 @@ span{
 
 .product-header{
   padding-bottom: 15px;
+}
+
+
+
+/* Login and Regsiter CSS */
+
+/* General Form Styles */
+form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  margin: auto;
+}
+
+header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #F4A460;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  border-color: #deb887;
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  background-color: #F4A460;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #c89f6e;
+}
+
+/* Updated styles for "Already have an account?" and "Forgot password?" */
+.signup_new {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup_new label {
+  color: #F4A460;
+  cursor: pointer;
+}
+
+.signup_new label:hover {
+  text-decoration: underline;
+}
+
+/* Styles for the "Forgot password?" link */
+a {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #deb887; /* Change color on hover */
+}
+
+/* Additional styling for "Forgot password?" */
+.forgot-password {
+  font-size: 14px;
+  color: #F4A460;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Container Styles */
+.whole_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_new {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Styles for Signup and Login Prompts */
+.signup_new {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+
+
+.signup_new label {
+  color: #F4A460; /* Color for the Signup/Login link */
+  cursor: pointer;
+  font-weight: bold; /* Make the link bold for emphasis */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.signup_new label:hover {
+  text-decoration: underline; /* Underline effect on hover */
+  color: #c89f6e; /* Slightly darker shade on hover */
+}
+
+
+
+.signup_new:after {
+  content: "";
+  display: block;
+  margin: 10px auto;
+  background-color: #F4A460; /* Color of the line */
+}
+
+
+/* Styles for the Forgot Password Link */
+.forgot-password {
+  padding-bottom: 10px;
+  color: #F4A460;
+}
+
+.forgot-password:hover {
+  color: black; /* Change color on hover */
+  text-decoration: underline; /* Underline effect on hover */
+}
+
+
+.or-divider {
+  text-align: center;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.google-button {
+  background-color: #DB4437; /* Google Red */
+}
+
+.facebook-button {
+  background-color: #4267B2; /* Facebook Blue */
 }
