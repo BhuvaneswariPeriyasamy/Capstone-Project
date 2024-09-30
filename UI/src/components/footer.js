@@ -12,9 +12,8 @@ const Footer = () => {
                     <nav>
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/about">About Us</a></li>
-                            <li><a href="/journals">Journals</a></li>
-                            <li><a href="/details">Details</a></li>
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -49,8 +48,8 @@ const Footer = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-                                <img src={require('../images/twitter.webp')} alt="Twitter" />
+                            <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
+                                <img src={require('../images/x.jpeg')} alt="X" />
                             </a>
                         </li>
                     </ul>
