@@ -12,7 +12,7 @@ const Header = ({ isLoggedIn, handleLogin }) => {
       <nav className="navigation">
         <ul className="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="/about">Register</a></li>
+          <li><a href="/register">Register</a></li>
           <li><a href="/login">Login</a></li>
         
         </ul>
