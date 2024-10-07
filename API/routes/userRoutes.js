@@ -40,5 +40,30 @@ router.post('/create', async (req, res) => {
     }
   });
   
+  router.get('/', async (req, res) => {
+    try {
+      const users = await User.find();
+      res.status(200).json(users);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+
+   // Update a user by ID
+   router.put('/update/:id', async (req, res) => {
+    const { firstname, lastname, email, password, address, city, state, postalcode } = req.body;
+  
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+        { userId: req.params.id },
+        { firstname, lastname, email, password, address, city, state, postalcode },
+        { new: true } // Return the updated document
+      );
+      if (!updatedUser) return res.status(404).json({ message: 'User not found' });
+      res.status(200).json(updatedUser);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
   
   module.exports = router;
