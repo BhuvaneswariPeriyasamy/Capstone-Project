@@ -1,40 +1,115 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const navigate = useNavigate(); // Hook to access the navigate function
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({});
 
   const handleRegisterRedirect = () => {
-    navigate('/register'); // Navigate to the Register page when clicking Register
+    navigate('/register');
   };
 
   const handleSocialLogin = (platform) => {
-    // Add functionality to handle social login here
     console.log(`Logging in with ${platform}`);
-    // Here you would typically integrate with the respective social media login API
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    if (!password.trim()) {
+      newErrors.password = 'Password is required';
+    } else if (password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e, field) => {
+    const { value } = e.target;
+
+    if (field === 'email') {
+      setEmail(value);
+      setErrors((prevErrors) => ({ ...prevErrors, email: '' }));
+    } else if (field === 'password') {
+      setPassword(value);
+      setErrors((prevErrors) => ({ ...prevErrors, password: '' }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    try {
+      const response = await fetch('http://localhost:5000/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ email, password })
+      });
+
+      if (response.ok) {
+        window.location.href = '/';
+        navigate('/');
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, submit: 'Invalid email or password' }));
+      }
+    } catch (error) {
+      setErrors((prevErrors) => ({ ...prevErrors, submit: 'Error: ' + error.message }));
+    }
   };
 
   return (
     <div className="login form">
       <header>Unlock Elegance!</header>
-      <form action="#">
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email" required />
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => handleChange(e, 'email')}
+          />
+          {errors.email && <p className="error-message">{errors.email}</p>}
         </div>
 
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" placeholder="Enter your password" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => handleChange(e, 'password')}
+          />
+          {errors.password && <p className="error-message">{errors.password}</p>}
         </div>
 
         <a href="#" className="forgot-password">Forgot password?</a>
+        
+        {errors.submit && (
+          <div className="error-alert">
+            {errors.submit}
+          </div>
+        )}
 
         <input type="submit" className="button" value="Login" />
       </form>
 
-      <div className="or-divider">OR</div> {/* Divider for social options */}
-      
+      <div className="or-divider">OR</div>
+
       <div className="social-login">
         <button onClick={() => handleSocialLogin('Google')} className="social-button google-button">
           Login with Google
@@ -47,7 +122,7 @@ const Login = () => {
       <div className="signup_new">
         <span className="signup_new">
           Don't have an account?  
-          <label htmlFor="check" onClick={handleRegisterRedirect}> Register</label>
+          <label htmlFor="check" onClick={handleRegisterRedirect} > Register</label>
         </span>
       </div>
     </div>

@@ -469,3 +469,74 @@ a:hover {
 .facebook-button {
   background-color: #4267B2; /* Facebook Blue */
 }
+
+
+
+.error-message, .error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 0.3em;
+}
+
+.error-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 0.95em;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.button {
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.or-divider {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.google-button,
+.facebook-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.google-button {
+  background-color: #db4437;
+  color: white;
+}
+
+.facebook-button {
+  background-color: #4267B2;
+  color: white;
+}
+
+
+.error-message {
+  color: #D8000C; /* Dark red for high visibility */
+  background-color: #FFBABA; /* Light red background */
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+
