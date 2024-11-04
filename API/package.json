@@ -13,9 +13,12 @@
   "license": "ISC",
   "description": "Welcome to Urban Furnitures, your destination for modern, stylish, and affordable home furnishings. Explore our curated selection of premium sofas, beds, dining tables, and more. Whether you're redecorating or simply looking for that perfect piece, we offer quality furniture that suits every style and budget.",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.18.1",
+    "gridfs-stream": "^1.1.1",
     "mongoose": "^8.7.0"
   },
   "devDependencies": {
