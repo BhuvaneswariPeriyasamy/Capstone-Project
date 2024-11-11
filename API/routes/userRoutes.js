@@ -160,4 +160,12 @@ router.put("/update/:id", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+<<<<<<< HEAD
+module.exports = router;
+=======
+module.exports = router;
+>>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590

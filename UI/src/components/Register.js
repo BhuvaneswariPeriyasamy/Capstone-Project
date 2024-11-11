@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Initialize Speech Recognition API
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+=======
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,8 +23,11 @@ const Register = () => {
     postalcode: "",
   });
   const [errors, setErrors] = useState({});
+<<<<<<< HEAD
 
   const recognitionRef = useRef(null); // Using ref to manage different recognition instances
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
 
   const handleLoginRedirect = () => {
     navigate("/login");
@@ -89,6 +97,7 @@ const Register = () => {
     } catch (error) {
       setErrors({ submit: "Error: " + error.message });
     }
+<<<<<<< HEAD
   };
 
   // Voice recognition helper function
@@ -118,6 +127,8 @@ const Register = () => {
     recognition.onerror = (event) => {
       console.error("Speech recognition error", event.error);
     };
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
   };
 
   return (
@@ -138,9 +149,12 @@ const Register = () => {
               {errors.firstname}
             </p>
           )}
+<<<<<<< HEAD
           <button type="button" onClick={() => startVoiceRecognition("firstname")}>
             🎤
           </button>
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
         </div>
 
         <div className="form-group">
@@ -157,9 +171,12 @@ const Register = () => {
               {errors.lastname}
             </p>
           )}
+<<<<<<< HEAD
           <button type="button" onClick={() => startVoiceRecognition("lastname")}>
             🎤
           </button>
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
         </div>
 
         <div className="form-group">
@@ -176,7 +193,10 @@ const Register = () => {
               {errors.email}
             </p>
           )}
+<<<<<<< HEAD
         
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
         </div>
 
         <div className="form-group">
@@ -225,9 +245,12 @@ const Register = () => {
               {errors.address}
             </p>
           )}
+<<<<<<< HEAD
           <button type="button" onClick={() => startVoiceRecognition("address")}>
             🎤
           </button>
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
         </div>
 
         <div className="form-group">
@@ -244,9 +267,12 @@ const Register = () => {
               {errors.city}
             </p>
           )}
+<<<<<<< HEAD
           <button type="button" onClick={() => startVoiceRecognition("city")}>
             🎤
           </button>
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
         </div>
 
         <div className="form-group">
@@ -263,9 +289,12 @@ const Register = () => {
               {errors.province}
             </p>
           )}
+<<<<<<< HEAD
           <button type="button" onClick={() => startVoiceRecognition("province")}>
             🎤
           </button>
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
         </div>
 
         <div className="form-group">
@@ -282,11 +311,19 @@ const Register = () => {
               {errors.postalcode}
             </p>
           )}
+<<<<<<< HEAD
           <button type="button" onClick={() => startVoiceRecognition("postalcode")}>
             🎤
           </button>
+=======
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
         </div>
 
+        {errors.submit && (
+          <p className="error-message" style={{ color: "red" }}>
+            {errors.submit}
+          </p>
+        )}
         <input type="submit" className="button" value="Signup" />
       </form>
 
