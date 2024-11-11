@@ -1,35 +1,47 @@
+// Cart.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const Cart = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([
+    {
+      _id: '1',
+      name: 'Sofa',
+      price: 250.00,
+      quantity: 1,
+      imageUrl: 'https://via.placeholder.com/150', // Sample image URL
+    },
+    {
+      _id: '2',
+      name: 'Dining Table',
+      price: 150.00,
+      quantity: 1,
+      imageUrl: 'https://via.placeholder.com/150', // Sample image URL
+    },
+  ]);
+
   const navigate = useNavigate();
 
-  // Function to handle adding product to the cart
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
   };
 
-  // Function to remove product from the cart
   const removeFromCart = (productId) => {
     setCart(cart.filter(item => item._id !== productId));
   };
 
-  // Function to change quantity of an item in the cart
   const updateQuantity = (productId, quantity) => {
     setCart(cart.map(item =>
       item._id === productId ? { ...item, quantity } : item
     ));
   };
 
-  // Function to proceed to checkout
   const checkout = () => {
     navigate('/checkout');
   };
 
   const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
   return (
@@ -45,11 +57,11 @@ const Cart = () => {
               <div className="item-details">
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
-                <div>
+                <div className='quantity'>
                   <label>Quantity:</label>
                   <input
                     type="number"
-                    value={item.quantity || 1}
+                    value={item.quantity}
                     min="1"
                     onChange={(e) => updateQuantity(item._id, parseInt(e.target.value))}
                   />
