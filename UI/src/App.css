@@ -474,7 +474,6 @@ a:hover {
   background-color: #4267B2; /* Facebook Blue */
 }
 
-<<<<<<< HEAD
 /* App.css */
 .product-listing-page {
   padding: 20px;
@@ -746,10 +745,6 @@ form {
   }
 }
 
-=======
-
-
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
 .error-message, .error {
   color: red;
   font-size: 0.9em;
@@ -813,7 +808,6 @@ form {
   margin-top: 5px;
   border-radius: 5px;
   font-size: 0.9rem;
-<<<<<<< HEAD
   text-align: center;
 }
 
@@ -912,10 +906,3 @@ form {
   border: none;
   border-radius: 5px;
 }
-=======
-  text-align: center;
-}
-
-
-
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1

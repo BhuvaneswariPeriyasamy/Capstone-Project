@@ -13,16 +13,11 @@ const Footer = () => {
 
                 // Fetch each icon by filename
                 for (const icon of icons) {
-<<<<<<< HEAD
                     const response = await axios.get(`http://localhost:5000/banner/${icon}`, {
                         responseType: 'blob'
                     });
                     const url = URL.createObjectURL(response.data);
                     fetchedIcons[icon] = url;
-=======
-                    const response = await axios.get(`http://localhost:5000/banner/${icon}`);
-                    fetchedIcons[icon] = `${response.data.image}`;
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
                 }
                 setSocialIcons(fetchedIcons);
             } catch (error) {

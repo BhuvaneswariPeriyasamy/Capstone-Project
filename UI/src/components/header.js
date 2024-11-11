@@ -3,7 +3,6 @@ import logo from '../images/Urban_Furniture_Logo.jpg';
 import axios from 'axios';
 
 const Header = ({ user, setUser }) => {
-<<<<<<< HEAD
   const [logoUrl, setLogoUrl] = useState(null);
 
   useEffect(() => {
@@ -26,12 +25,6 @@ const Header = ({ user, setUser }) => {
         ) : (
           <p>Loading logo...</p>
         )}
-=======
-  return (
-    <header className="header">
-      <div className="logo">
-        <img src={logo} alt="Furniture Store Logo" />
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
         <div className="name">Urban Furniture</div>
       </div>
       <nav className="navigation">
@@ -40,10 +33,7 @@ const Header = ({ user, setUser }) => {
             <>
               <li>Hello, {user.firstname}</li>
               <li><a href="/">Home</a></li>
-<<<<<<< HEAD
               <li><a href="/products">Products</a></li>
-=======
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
               <li><a href="#" onClick={() => {
                 axios.post('http://localhost:5000/users/logout', {}, { withCredentials: true })
                   .then(() => setUser(null)) // Reset user on logout
@@ -51,7 +41,6 @@ const Header = ({ user, setUser }) => {
               }}>Logout</a></li>
             </>
           ) : (
-<<<<<<< HEAD
             < >
             
               <li><a href="/" >Home</a></li>
@@ -59,21 +48,12 @@ const Header = ({ user, setUser }) => {
               <li><a href="/cart"  >Cart</a></li>
               <li><a href="/register" >Register</a></li>
               <li><a href="/login"  >Login</a></li>
-=======
-            <>
-              <li><a href="/">Home</a></li>
-              <li><a href="/register">Register</a></li>
-              <li><a href="/login">Login</a></li>
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
             </>
           )}
         </ul>
       </nav>
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
     </header>
 
 

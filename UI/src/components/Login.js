@@ -11,13 +11,6 @@ const Login = () => {
     navigate('/register');
   };
 
-<<<<<<< HEAD
-=======
-  const handleSocialLogin = (platform) => {
-    console.log(`Logging in with ${platform}`);
-  };
-
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
   const validateForm = () => {
     const newErrors = {};
 
@@ -100,11 +93,7 @@ const Login = () => {
           {errors.password && <p className="error-message">{errors.password}</p>}
         </div>
 
-<<<<<<< HEAD
       
-=======
-        <a href="#" className="forgot-password">Forgot password?</a>
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
         
         {errors.submit && (
           <div className="error-alert">
@@ -117,18 +106,7 @@ const Login = () => {
 
       <div className="or-divider">OR</div>
 
-<<<<<<< HEAD
       
-=======
-      <div className="social-login">
-        <button onClick={() => handleSocialLogin('Google')} className="social-button google-button">
-          Login with Google
-        </button>
-        <button onClick={() => handleSocialLogin('Facebook')} className="social-button facebook-button">
-          Login with Facebook
-        </button>
-      </div>
->>>>>>> 1825b09ce5bdbffb16e38b96fed74b7dac5836c1
 
       <div className="signup_new">
         <span className="signup_new">
