@@ -26,6 +26,8 @@
   main {
     flex: 1;
   }
+
+  
   
   /* Header styles */
   .header {
@@ -36,6 +38,21 @@
     background-color: #DEB887;
     /* color: black !important; */
   }
+  button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 2px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
   
   .nav-links {
     display: flex;

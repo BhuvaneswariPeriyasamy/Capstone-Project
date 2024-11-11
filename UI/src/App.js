@@ -10,6 +10,7 @@ import ProductListing from './components/ProductListing';
 import ProductDetails from './components/ProductDetails';
 
 import axios from 'axios';
+>>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
 
 const App = () => {
   const [user, setUser] = useState(null);

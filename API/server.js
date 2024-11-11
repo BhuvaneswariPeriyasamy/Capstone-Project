@@ -3,7 +3,9 @@ const express = require('express');
 const initializeApp=require("firebase/app");
 const admin = require('firebase-admin');
 const serviceAccount = require('./capstone-project-27870-firebase-adminsdk-76hey-9a08dc4d32.json');
-
+const initializeApp=require("firebase/app");
+const admin = require('firebase-admin');
+const serviceAccount = require('./capstone-project-27870-firebase-adminsdk-76hey-9a08dc4d32.json');
 const session = require('express-session');
 const cors = require('cors');
 const path = require('path');
@@ -16,7 +18,8 @@ const bannerRoutes=require('./routes/bannerRoutes');
 
 const productsRoutes=require('./routes/productsRoutes');
 const productDetailRoutes=require('./routes/productDetailRoutes');
-
+const productsRoutes=require('./routes/productsRoutes');
+const productDetailRoutes=require('./routes/productDetailRoutes');
 
 require('dotenv').config();
 const app = express();
@@ -52,7 +55,6 @@ mongoose.connect(process.env.MONGO_URI)
 app.use('/users', userRoutes);
 app.use('/categories', categoriesRoutes);
 app.use('/banner', bannerRoutes);
-
 app.use('/products', productsRoutes);
 app.use('/productdetails', productDetailRoutes);
 
@@ -62,11 +64,9 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
-
 app.listen(PORT, () => {
   console.log(`API server running on port ${PORT}`);
 });
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyC9Tovz_-rzu55jOuP3cWWQBj-BHfjRnTY",
