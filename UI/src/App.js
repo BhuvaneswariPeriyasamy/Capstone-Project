@@ -8,9 +8,10 @@ import Register from './components/Register';
 import Login from './components/Login';
 import ProductListing from './components/ProductListing';
 import ProductDetails from './components/ProductDetails';
+import ThankYou from './components/Thankyou';
+
 
 import axios from 'axios';
->>>>>>> 20b6e49b5aabff1a9be2b7a92f182021c4585590
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -38,6 +39,9 @@ const App = () => {
               <Route path="/register" element={<Register />} />
               <Route path="/products" element={<ProductListing />} />
               <Route path="/productdetails/product/:productId" element={<ProductDetails />} />
+              <Route path="/cart" element={<Cart />} /> {/* Add route for cart */}
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/thank-you" element={<ThankYou />} /> 
           </Routes>
       </main>
       <Footer />
