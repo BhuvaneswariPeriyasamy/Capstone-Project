@@ -116,4 +116,106 @@ router.get('/usercart', authMiddleware, async (req, res) => {
   }
 });
 
+// Remove Item from Cart
+router.delete('/remove', async (req, res) => {
+  let userId;
+  if(req.session!=null && req.session.user!=null)
+  {
+    userId = req.session.user.id;
+  }
+   // Get user ID from session
+  const { productId,use } = req.body; // Get productId from the URL parameters
+  try {
+    // Fetch the user's cart from the database
+    const cart = await Cart.findOne({ userId: use }).populate('items.productId');
+    console.log(cart);
+    if (!cart) {
+      return res.status(404).json({ success: false, message: 'Cart not found for this user.' });
+    }
+
+     // Convert productId to ObjectId for comparison
+     const productIdAsObjectId = new mongoose.Types.ObjectId(productId);
+
+     // Find the index of the item to be removed
+     const itemIndex = cart.items.findIndex(item => item.productId.toString() ===productId);
+
+    if (itemIndex === -1) {
+      return res.status(404).json({ success: false, message: 'Product not found in the cart.' });
+    }
+
+    // Remove the item from the cart
+    cart.items.splice(itemIndex, 1);
+    const totalAmount=cart.items.reduce((total, item) => total + item.quantity * item.price, 0);
+    console.log(totalAmount);
+    cart.totalAmount = Number(totalAmount);
+
+    await cart.save();
+    res.status(200).json({ success: true, message: 'Product removed from cart successfully.' });
+  } catch (error) {
+    console.error('Error inside remove', error);
+    res.status(500).json({ success: false, message: 'Failed to remove product from cart.' });
+  }
+});
+
+// Update Item Quantity in Cart
+router.put('/update/:productId', async (req, res) => {
+  const userId = req.session.user.id; // Get user ID from session
+  console.log("inside update")
+  console.log(userId);
+  const { productId } = req.params; // Get productId from the URL parameters
+  const { quantity } = req.body; // Get the new quantity from the request body
+
+  if (isNaN(quantity) || quantity <= 0) {
+    return res.status(400).json({ success: false, message: 'Invalid quantity value.' });
+  }
+
+  try {
+    // Fetch the user's cart from the database
+    const cart = await Cart.findOne({ userId });
+
+    if (!cart) {
+      return res.status(404).json({ success: false, message: 'Cart not found for this user.' });
+    }
+    // Convert productId to ObjectId for comparison
+    const productIdAsObjectId = new mongoose.Types.ObjectId(productId);
+
+    // Find the index of the item to be removed
+    const itemIndex = cart.items.findIndex(item => item.productId.toString() ===productId);
+    console.log(itemIndex);
+
+    if (itemIndex === -1) {
+      return res.status(404).json({ success: false, message: 'Product not found in the cart.' });
+    }
+
+    // Update the quantity of the item in the cart
+    cart.items[itemIndex].quantity = quantity;
+    cart.totalAmount = cart.items.reduce((total, item) => total + item.quantity * item.price, 0);
+
+    await cart.save();
+    res.status(200).json({ success: true, message: 'Product quantity updated successfully.' });
+  } catch (error) {
+    console.error('Error updating item quantity:', error);
+    res.status(500).json({ success: false, message: 'Failed to update product quantity.' });
+  }
+});
+
+// Helper function to fetch image URL from Firebase Storage
+async function getImageUrlFromFirebase(imageName) {
+  const bucket = firebaseAdmin.storage().bucket(); // Get Firebase storage bucket
+  const file = bucket.file(imageName); // Get the file reference from the storage bucket
+  
+  try {
+    // Generate a signed URL to access the image stored in Firebase Storage
+    const [url] = await file.getSignedUrl({
+      action: 'read',
+      expires: '03-09-2491', // Set expiration date far in the future
+    });
+
+    return url; // Return the signed URL to access the image
+  } catch (error) {
+    console.error('Error fetching image from Firebase:', error);
+    return null; // Return null if there's an error fetching the image
+  }
+}
+
 module.exports = router;
