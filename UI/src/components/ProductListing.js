@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const ProductListing = () => {
+const ProductListing = ({user}) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -39,10 +39,40 @@ const ProductListing = () => {
     navigate(`/productdetails/product/${productId}`);
   };
 
-  const handleAddToCart = (product) => {
-    console.log("Adding to cart:", product);
-    // Add your logic to add the product to the cart, e.g., update cart context or send to backend
-    // Example: updateCart(product) if using context
+  const handleAddToCart = async (product) => {
+    console.log("inside handleAddToCart");
+    if (!user) {
+      navigate('/login'); // Redirect to login page if not logged in
+      return;
+    }
+  
+    try {
+      console.log(user.id);
+      const payload = {
+        userId: Number(user.id), // Assuming `user` object contains `_id`
+        items: [
+          {
+            productId: product._id,        // Product ID
+            quantity: 1,                   // Default quantity is 1
+            price: product.price,
+          },
+        ],
+      };
+      console.log(payload);
+      const response = await axios.post('http://localhost:5000/cart/addtocart',
+        payload,
+        { withCredentials: true }
+      );
+  
+      if (response.data.success) {
+        console.log('Product added to cart successfully');
+        navigate('/cart'); // Redirect to cart page
+      } else {
+        console.error(response.data.message);
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
   };
 
   return (
